@@ -1,47 +1,34 @@
 #!/bin/bash
-# ===============================
-# Konfigurasi Forwarder DNS Minastir
-# ===============================
+# ===========================================================
+# Konfigurasi Minastir sebagai DNS Forwarder (Docker version)
+# ===========================================================
 
-echo "[1/5] Updating repository..."
+echo "[1/5] Menginstal bind9..."
 apt update -y
+apt install -y bind9 bind9utils bind9-doc
 
-echo "[2/5] Installing Squid proxy..."
-apt install squid -y
+echo "[2/5] Mengatur konfigurasi /etc/bind/named.conf.options..."
+cat > /etc/bind/named.conf.options <<EOF
+options {
+    directory "/var/cache/bind";
 
-echo "[3/5] Backing up default config..."
-cp /etc/squid/squid.conf /etc/squid/squid.conf.bak
+    forwarders {
+        192.168.122.1;
+    };
 
-echo "[4/5] Writing new Squid configuration..."
-cat > /etc/squid/squid.conf <<'EOF'
-# ===============================
-# Konfigurasi Squid (Forwarder DNS)
-# ===============================
-
-# Port proxy
-http_port 3128
-
-# Hanya izinkan jaringan internal 192.236.0.0/16
-acl internalnet src 192.236.0.0/16
-http_access allow internalnet
-http_access deny all
-
-# Log akses
-access_log /var/log/squid/access.log
-
-# Gunakan DNS nameserver eksternal sesuai soal
-dns_nameservers 192.168.122.1
+    allow-query { any; };
+    listen-on { any; };
+    recursion yes;
+};
 EOF
 
-echo "[5/5] Restarting Squid service..."
-service squid restart
+echo "[3/5] Mengatur resolv.conf untuk menggunakan localhost..."
+rm -f /etc/resolv.conf
+echo "nameserver 127.0.0.1" > /etc/resolv.conf
 
-echo
-echo "Proxy Minastir telah aktif di port 3128"
-echo "Pastikan client menambahkan environment variable berikut:"
-echo "export http_proxy=\"http://192.236.5.2:3128\""
-echo "export https_proxy=\"http://192.236.5.2:3128\""
-echo
-echo "Untuk verifikasi, jalankan dari node lain:"
-echo "curl -I http://google.com"
-echo "Jika berhasil, akan muncul header: 'Via: 1.1 Minastir (squid)'"
+echo "[4/5] Memulai ulang layanan bind9 dengan named..."
+service named restart
+
+echo "[5/5] Tes DNS forwarding..."
+apt install -y dnsutils >/dev/null 2>&1
+dig google.com @127.0.0.1 | grep "status\|SERVER"
