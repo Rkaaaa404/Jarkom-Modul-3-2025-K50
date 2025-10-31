@@ -4,7 +4,7 @@
 
 PREFIX="192.236"
 INTERFACE="eth0"   # ubah sesuai interface Aldarion yang terhubung ke subnet 1
-DNS_MASTER="${PREFIX}.3.3"   # Erendis (DNS Master)
+DNS_MASTER="${PREFIX}.3.2"   # Erendis (DNS Master)
 
 echo "[1/5] Installing ISC DHCP Server..."
 apt update -y
