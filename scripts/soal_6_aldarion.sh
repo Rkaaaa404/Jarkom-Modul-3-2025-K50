@@ -21,7 +21,7 @@ range 192.236.1.6 192.236.1.34;
 range 192.236.1.68 192.236.1.94;
 option routers 192.236.1.1;
 option broadcast-address 192.236.1.255;
-option domain-name-servers 192.236.3.3;
+option domain-name-servers 192.236.3.2, 192.236.3.3;
 default-lease-time 1800;
 }
 
@@ -32,7 +32,7 @@ range 192.236.2.35 192.236.2.67;
 range 192.236.2.96 192.236.2.121;
 option routers 192.236.2.1;
 option broadcast-address 192.236.2.255;
-option domain-name-servers 192.236.3.3;
+option domain-name-servers 192.236.3.2, 192.236.3.3;
 default-lease-time 600;
 }
 
@@ -45,7 +45,7 @@ fixed-address 192.236.3.95;
 }
 option routers 192.236.3.1;
 option broadcast-address 192.236.3.255;
-option domain-name-servers 192.236.3.3;
+option domain-name-servers 192.236.3.2, 192.236.3.3;
 }
 
 # Subnet 4 (Proxy / Static)

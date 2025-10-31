@@ -17,13 +17,13 @@ cat > /etc/bind/named.conf.local <<EOF
 zone "$DOMAIN" {
     type master;
     file "$ZONE_DIR/$DOMAIN";
-    allow-transfer { 192.236.3.4; };
+    allow-transfer { 192.236.3.3; };
 };
 
 zone "$REVERSE_ZONE" {
     type master;
     file "$ZONE_DIR/db.192.236.3";
-    allow-transfer { 192.236.3.4; };
+    allow-transfer { 192.236.3.3; };
 };
 EOF
 
@@ -34,7 +34,7 @@ options {
 
     recursion yes;
     allow-query { any; };
-    allow-transfer { 192.236.3.4; };
+    allow-transfer { 192.236.3.3; };
 
     listen-on port 53 { any; };
     listen-on-v6 { any; };
@@ -56,10 +56,10 @@ cat > $ZONE_DIR/$DOMAIN <<EOF
 @   IN  NS  ns2.$DOMAIN.
 
 ; A Records
-ns1         IN  A 192.236.3.3
-ns2         IN  A 192.236.3.4
-erendis     IN  A 192.236.3.3
-amdir       IN  A 192.236.3.4
+ns1         IN  A 192.236.3.2
+ns2         IN  A 192.236.3.3
+erendis     IN  A 192.236.3.2
+amdir       IN  A 192.236.3.3
 elros       IN  A 192.236.1.7
 pharazoan   IN  A 192.236.2.2
 
@@ -86,8 +86,8 @@ cat > $ZONE_DIR/db.192.236.3 <<EOF
 @   IN  NS  ns2.$DOMAIN.
 
 ; Reverse PTR
-3   IN  PTR erendis.$DOMAIN.
-4   IN  PTR amdir.$DOMAIN.
+2   IN  PTR erendis.$DOMAIN.
+3   IN  PTR amdir.$DOMAIN.
 EOF
 
 echo "Restarting bind9..."

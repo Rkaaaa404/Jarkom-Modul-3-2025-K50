@@ -33,7 +33,7 @@ cat > /etc/bind/named.conf.local <<'EOF'
 zone "k50.com" {
     type master;
     file "/etc/bind/zones/k50.com";
-    allow-transfer { 192.236.3.4; }; // Amdir
+    allow-transfer { 192.236.3.3; }; // Amdir
 };
 EOF
 
@@ -50,8 +50,8 @@ $TTL    604800
 @   IN  NS  ns1.k50.com.
 @   IN  NS  ns2.k50.com.
 
-ns1             IN  A   192.236.3.3
-ns2             IN  A   192.236.3.4
+ns1             IN  A   192.236.3.2
+ns2             IN  A   192.236.3.3
 
 elendil         IN  A   192.236.1.2
 isildur         IN  A   192.236.1.3
@@ -67,9 +67,9 @@ oropher         IN  A   192.236.2.5
 celeborn        IN  A   192.236.2.6
 gladriel        IN  A   192.236.2.7
 
-khamul          IN  A   192.236.3.2
-erendis         IN  A   192.236.3.3
-amdir           IN  A   192.236.3.4
+khamul          IN  A   192.236.3.95
+erendis         IN  A   192.236.3.2
+amdir           IN  A   192.236.3.3
 
 aldarion        IN  A   192.236.4.2
 palantir        IN  A   192.236.4.3

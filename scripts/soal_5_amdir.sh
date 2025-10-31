@@ -16,13 +16,13 @@ echo "Membuat file named.conf.local..."
 cat > /etc/bind/named.conf.local <<EOF
 zone "$DOMAIN" {
     type slave;
-    masters { 192.236.3.3; };
+    masters { 192.236.3.2; };
     file "$ZONE_DIR/$DOMAIN";
 };
 
 zone "$REVERSE_ZONE" {
     type slave;
-    masters { 192.236.3.3; };
+    masters { 192.236.3.2; };
     file "$ZONE_DIR/db.192.236.3";
 };
 EOF

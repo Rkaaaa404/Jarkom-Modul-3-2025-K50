@@ -25,7 +25,7 @@ echo "[4/5] Zone slave..."
 cat > /etc/bind/named.conf.local <<'EOF'
 zone "k50.com" {
     type slave;
-    masters { 192.236.3.3; }; # Erendis
+    masters { 192.236.3.2; }; # Erendis
     file "/etc/bind/zones/k50.com";
 };
 EOF
