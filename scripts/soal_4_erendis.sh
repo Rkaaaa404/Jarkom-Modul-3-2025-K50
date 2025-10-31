@@ -53,29 +53,15 @@ $TTL    604800
 ns1             IN  A   192.236.3.2
 ns2             IN  A   192.236.3.3
 
-elendil         IN  A   192.236.1.2
-isildur         IN  A   192.236.1.3
-anarion         IN  A   192.236.1.4
-miriel          IN  A   192.236.1.5
-amandil         IN  A   192.236.1.6
-elros           IN  A   192.236.1.7
-
-pharazoan       IN  A   192.236.2.2
-celebrimbor     IN  A   192.236.2.3
-gilgalad        IN  A   192.236.2.4
-oropher         IN  A   192.236.2.5
-celeborn        IN  A   192.236.2.6
-gladriel        IN  A   192.236.2.7
-
-khamul          IN  A   192.236.3.95
-erendis         IN  A   192.236.3.2
-amdir           IN  A   192.236.3.3
-
-aldarion        IN  A   192.236.4.2
-palantir        IN  A   192.236.4.3
-narvi           IN  A   192.236.4.4
-
-minastir        IN  A   192.236.5.2
+palantir    IN  A   192.236.4.3
+elros       IN  A   192.236.1.6
+pharazon    IN  A   192.236.2.2
+elendil     IN  A   192.236.1.2
+isildur     IN  A   192.236.1.3
+anarion     IN  A   192.236.1.4
+galadriel   IN  A   192.236.2.6
+celeborn    IN  A   192.236.2.5
+oropher     IN  A   192.236.2.4
 EOF
 
 echo "[6/6] Cek konfigurasi..."
