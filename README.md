@@ -46,10 +46,8 @@ Melakukan test `lynx` dan `curl` pada website:
   - IP Worker:   
     - *192.236.1.2:8001*:<br>
     ![192.236.1.2](assets/9-sec.png)
-    <br>
     - *192.236.1.3:8002*:<br>
     ![192.236.1.3](assets/9-sec1.png)
-    <br>
     - *192.236.1.4:8003*:<br>
     ![192.236.1.4](assets/9-sec2.png)
     <br>
