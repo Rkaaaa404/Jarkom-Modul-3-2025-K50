@@ -112,8 +112,11 @@ service named restart
 ```
 
 Uji coba di Minastir harus me-return `127.0.0.1`:
+
 ![3](assets/3.PNG)
+
 Dan uji coba di host lain harus me-return ip address Minastir:
+
 ![3-1](assets/3-1.PNG)
 
 ## Soal 4
@@ -200,7 +203,9 @@ zone "k50.com" {
 Lalu restart bind9 di Erendis dan Amdir dengan named
 
 Uji coba dengan `dig` ip address Erendis dan Amdir dan nama domain yang ada di konfigurasi:
+
 ![4](assets/4.PNG)
+
 ![4-1](assets/4-1.PNG)
 
 ## Soal 5
@@ -220,12 +225,15 @@ di `/etc/bind/zones/k50.com`
 Lalu restart bind9
 
 Uji coba dengan argumen `TXT` dan flag `-x`:
+
 ![5](assets/5.PNG)
+
 ![5-1](assets/5-1.PNG)
 
 ## Soal 6
 
 Uji coba dengan `cat /var/lib/dhcp/dhcpd.leases` di server:
+
 ![6](assets/6.PNG)
 
 di client:
@@ -233,6 +241,7 @@ di client:
 dhclient -r && dhclient -v
 cat /var/lib/dhcp/dhclient.leases
 ```
+
 ![6-1](assets/6-1.PNG)
 
 ## Soal 7
