@@ -67,7 +67,9 @@ Melakukan test `lynx` dan `curl` pada website:
   php artisan migrate:fresh
   php artisan db:seed --class=AiringsTableSeeder
   ```    
-  Hasil pengujian:    
+  Jika sudah melakukan command tersebut bisa melakukan curl ke masing masing endpoint dengan command `curl http://[IP Worker]:[port worker]/api/airing`    
+  <br> Hasil pengujian:    
   ![test curl](assets/9-curl.png)
 
 ## Soal 10
+Run solver `/root/soal_10.sh` di node *Elros*, selanjutnya run solver `/root/soal_10.sh` di node worker (*Elendil, Isildur, Anarion*), jika sudah selesai bisa melakukan pengujian `curl` melalui node *Miriel* atau *Celebrimbor* dengan command `curl elros.k50.com/api/airing`
