@@ -73,3 +73,15 @@ Melakukan test `lynx` dan `curl` pada website:
 
 ## Soal 10
 Run solver `/root/soal_10.sh` di node *Elros*, selanjutnya run solver `/root/soal_10.sh` di node worker (*Elendil, Isildur, Anarion*), jika sudah selesai bisa melakukan pengujian `curl` melalui node *Miriel* atau *Celebrimbor* dengan command `curl elros.k50.com/api/airing`
+
+## Soal 11
+Melakukan apache benchmark (ab) yang dibagi menjadi tiga tahap, sebelumnya melakukan persiapan di client (*Miriel*/*Celebrimbor*):
+```
+apt update
+apt install apache2-utils -y
+```
+Selanjutnya sesuai tahap: <br>
+***NOTE: Untuk tiap melakukan serangan pantau CPU Usage node worker (Elendil, Isildur dan Anarion) dengan command `htop`, selain itu cek error log di node Elros dengan command `cat /var/log/nginx/error.log`***
+- Serangan awal: `ab -n 100 -c 10 http://elros.k50.com/api/airing/`
+- Serangan penuh: `ab -n 2000 -c 100 http://elros.k50.com/api/airing/`
+  
