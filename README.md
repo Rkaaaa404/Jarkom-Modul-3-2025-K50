@@ -12,7 +12,9 @@
 
 ## Soal 1
 Buat Topologi
+
 ![1](assets/1.PNG)
+
 Kosongkan `resolv.conf` dan pastikan Durin (router) hanya meneruskan paket:
 ```bash
 rm /etc/resolv.conf
