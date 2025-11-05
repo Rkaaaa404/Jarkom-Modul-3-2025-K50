@@ -206,7 +206,7 @@ Uji coba dengan `dig` ip address Erendis dan Amdir dan nama domain yang ada di k
 
 ![4](assets/4.PNG)
 
-![4-1](assets/4-1.PNG)
+![4-1](assets/4-1.png)
 
 ## Soal 5
 Di Erendis:
