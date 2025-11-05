@@ -26,7 +26,7 @@ cat > /etc/nginx/sites-available/elros-lb <<EOF
 # Upstream block (Soal 10)
 upstream kesatria_numenor {
     # Round Robin (default), merata (Soal 10)
-    
+
     # Pake domain, bukan IP
     server elendil.k50.com:8001;
     server isildur.k50.com:8002;
@@ -40,10 +40,10 @@ server {
     location / {
         # Teruskan ke upstream (Soal 10)
         proxy_pass http://kesatria_numenor;
-        
+
         # REVISI FINAL: Kirim Host header ASLI (elros.k50.com)
         proxy_set_header Host \$host;
-        
+
         proxy_set_header X-Real-IP \$remote_addr;
         proxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;
         proxy_set_header X-Forwarded-Proto \$scheme;

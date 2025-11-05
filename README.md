@@ -300,9 +300,23 @@ Melakukan test `lynx` dan `curl` pada website:
   php artisan migrate:fresh
   php artisan db:seed --class=AiringsTableSeeder
   ```    
-  Jika sudah melakukan command tersebut bisa melakukan curl ke masing masing endpoint dengan command `curl http://[IP Worker]:[port worker]/api/airing`    
+  Jika sudah melakukan command tersebut bisa melakukan curl ke masing masing endpoint dengan command `curl http://[Domain Worker]:[port worker]/api/airing`    
   <br> Hasil pengujian:    
   ![test curl](assets/9-curl.png)
 
 ## Soal 10
 Run solver `/root/soal_10.sh` di node *Elros*, selanjutnya run solver `/root/soal_10.sh` di node worker (*Elendil, Isildur, Anarion*), jika sudah selesai bisa melakukan pengujian `curl` melalui node *Miriel* atau *Celebrimbor* dengan command `curl elros.k50.com/api/airing`
+
+## Soal 11
+Run solver `/root/soal_11.sh` di node *Elros*, selanjutnya jalankan command:    
+```bash
+apt update
+apt install apache2-utils -y
+
+# Serangan Awal
+ab -n 100 -c 10 http://elros.k50.com/api/airing/
+
+# Serangan Penuh
+ab -n 2000 -c 100 http://elros.k50.com/api/airing/
+```
+Saat test sedang berjalan lakukan monitoring penggunaan resource dengan command `htop` di tiap worker. Jika terjadi error, baca log error di node *Elros* dengan command `cat /var/log/nginx/error.log`

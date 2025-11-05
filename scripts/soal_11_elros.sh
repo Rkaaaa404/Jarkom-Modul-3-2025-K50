@@ -1,21 +1,19 @@
 #!/bin/bash
 # ==========================================================
-# Script Soal 11 - Strategi Bertahan (Weighted LB)
+# Script Soal 11 (REVISI FINAL) - Weighted LB
 # (Jalankan di Elros)
 # ==========================================================
 
 set -e
 
 NGINX_CONF="/etc/nginx/sites-available/elros-lb"
-UPSTREAM_BLOCK="upstream kesatria_numenor"
+
+# --- INI YANG DIBENERIN ---
+# Variabelnya sekarang cuma nama, BUKAN 'upstream nama'
+UPSTREAM_BLOCK="kesatria_numenor"
+# --------------------------
 
 echo "Menerapkan Strategi Bertahan (Weighted Round Robin)..."
-
-# Cek dulu config-nya ada
-if [ ! -f "$NGINX_CONF" ]; then
-    echo "ERROR: Config $NGINX_CONF tidak ditemukan."
-    exit 1
-fi
 
 # Hapus config lama (biar gampang)
 rm -f $NGINX_CONF
@@ -24,7 +22,7 @@ rm -f $NGINX_CONF
 cat > $NGINX_CONF <<EOF
 # Upstream block (Soal 11 - Weighted)
 upstream $UPSTREAM_BLOCK {
-    # Elendil dapet 3x lipat beban dibanding yg lain
+    # Elendil dapet 3x lipat beban
     server elendil.k50.com:8001 weight=3;
     server isildur.k50.com:8002 weight=1;
     server anarion.k50.com:8003 weight=1;
@@ -45,6 +43,11 @@ server {
 EOF
 
 echo "Config $NGINX_CONF telah di-update dengan 'weight'."
+
+echo "Mengecek syntax Nginx..."
+# Safety check
+nginx -t
+
 echo "Restarting Nginx..."
 service nginx restart
 
