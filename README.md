@@ -12,7 +12,9 @@
 
 ## Soal 1
 Buat Topologi
+
 ![1](assets/1.PNG)
+
 Kosongkan `resolv.conf` dan pastikan Durin (router) hanya meneruskan paket:
 ```bash
 rm /etc/resolv.conf
@@ -206,7 +208,7 @@ Uji coba dengan `dig` ip address Erendis dan Amdir dan nama domain yang ada di k
 
 ![4](assets/4.PNG)
 
-![4-1](assets/4-1.PNG)
+![4-1](assets/4-1.png)
 
 ## Soal 5
 Di Erendis:
@@ -231,6 +233,15 @@ Uji coba dengan argumen `TXT` dan flag `-x`:
 ![5-1](assets/5-1.PNG)
 
 ## Soal 6
+
+Tambahkan:
+```bash
+max-lease-time 3600;
+default-lease-time 1800; # Untuk Subnet Manusia
+default-lease-time 600; # Untuk Subnet Peri
+```
+
+Di `/etc/dhcp/dhcpd.conf`
 
 Uji coba dengan `cat /var/lib/dhcp/dhcpd.leases` di server:
 

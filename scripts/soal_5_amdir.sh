@@ -1,7 +1,5 @@
 #!/bin/bash
-# ============================================
-#  DNS Slave Setup Script - Amdir (192.236.3.4)
-# ============================================
+#  DNS Slave Setup Script - Amdir (192.236.3.3)
 
 DOMAIN="k50.com"
 REVERSE_ZONE="3.236.192.in-addr.arpa"

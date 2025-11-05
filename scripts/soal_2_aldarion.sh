@@ -47,7 +47,6 @@ subnet ${PREFIX}.3.0 netmask 255.255.255.0 {
   option broadcast-address ${PREFIX}.3.255;
   option domain-name-servers ${DNS_MASTER};
 }
-
 # Subnet ke-4 (link ke Minastir / Forward Proxy)
 subnet 192.236.4.0 netmask 255.255.255.0 {
   # Semua host statis (Aldarion, Palantir, Narvi)
