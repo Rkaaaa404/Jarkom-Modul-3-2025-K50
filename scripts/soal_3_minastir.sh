@@ -1,7 +1,5 @@
 #!/bin/bash
-# ===========================================================
-# Konfigurasi Minastir sebagai DNS Forwarder (Docker version)
-# ===========================================================
+# Konfigurasi Minastir sebagai DNS Forwarder
 
 echo "[1/5] Menginstal bind9..."
 apt update -y

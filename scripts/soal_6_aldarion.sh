@@ -45,7 +45,7 @@ fixed-address 192.236.3.95;
 }
 option routers 192.236.3.1;
 option broadcast-address 192.236.3.255;
-option domain-name-servers 192.236.3.2, 192.236.3.3;
+option domain-name-servers 192.236.3.2;
 }
 
 # Subnet 4 (Proxy / Static)
