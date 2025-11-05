@@ -232,6 +232,15 @@ Uji coba dengan argumen `TXT` dan flag `-x`:
 
 ## Soal 6
 
+Tambahkan:
+```bash
+max-lease-time 3600;
+default-lease-time 1800; # Untuk Subnet Manusia
+default-lease-time 600; # Untuk Subnet Peri
+```
+
+Di `/etc/dhcp/dhcpd.conf`
+
 Uji coba dengan `cat /var/lib/dhcp/dhcpd.leases` di server:
 
 ![6](assets/6.PNG)
